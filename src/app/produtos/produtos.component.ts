@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutoService } from '../produto.service';
+import { Produto } from './produto.iterface';
 
 @Component({
   selector: 'app-produtos',
@@ -7,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class ProdutosComponent implements OnInit {
   title_produtos = "Produtos"
 
-  produtos = [
-    {id:'1', nome:'ELton'}
-  ]
-  constructor() { }
+  produtos: Produto[];
+
+  constructor(private produtoService: ProdutoService) { }
 
   ngOnInit() {
+    this.produtoService.listar().subscribe(
+      (produtos: Produto[]) => this.produtos = produtos,
+    )
   }
 
+ 
 }

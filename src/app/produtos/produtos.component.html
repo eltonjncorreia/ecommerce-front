@@ -2,10 +2,23 @@
   {{ title_produtos }}
 </h2>
 
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3" *ngFor="let produto of produtos">
+      <div class="card">
+        
+        <div class="card-body">
+          
+          <h4 class="card-title">{{ produto.nome }}</h4>
+          <p class="card-text"><strong>Descricão:</strong> {{ produto.descricao }}</p>
+          <p class="card-text">
+            <strong>Categoria:</strong> {{ produto.categoria.nome }}<br>
+            <strong>R$: </strong>{{ produto.preco }}
+          </p>
 
-<ul>
-  <li *ngFor="let produto of produtos">
-    {{ produto.id }} - {{ produto.nome }}
-  </li>
-  
-</ul>
+          <a href="#" class="btn btn-primary">Adicionar aos Pedidos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
